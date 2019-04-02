@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html lang="mx">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>	</title>
+	<title>Slider Responsive</title>
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+    	touch: true,
+    	pauseOnAction: false,
+    	pauseOnHover: false,
+    });
+  });
+</script>
 </head>
 <body>
-	
+	<div class="flexslider">
+		<ul class="slides">
+			<li>
+				<img src="img/border-1.png" alt="">
+				<section class="flex-caption">
+					<p>MADE FOR DESIGNERS</p>
+				</section>
+			</li>
+			<li>
+				<img src="img/border-2.png" alt="">
+				<section class="flex-caption1">
+					<p>FRESH AND
+					 <br> 
+					BEAUTIFUL DESIGN </p>
+					
+				</section>
+			</li>
+			<li>
+				<img src="img/border-3.png" alt="">
+				<section class="flex-caption2">
+					<p>CLEAN AND
+					<br>
+					 REUSABLE CODE</p>
+
+				</section>
+			</li>
+			<li>
+				<img src="img/border-4.png" alt="">
+				<section class="flex-caption3">
+					<p>JUST FOCUS ON <br> YOUR CREATIVITY</p>
+				</section>
+				<li>
+				<img src="img/border-5.png" alt="">
+				<section class="flex-caption4">
+					<p>SHOWCASE <br> YOUR CONTENT </p>
+				</section>
+			</li>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>
