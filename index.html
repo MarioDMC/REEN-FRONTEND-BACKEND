@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="mx">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>	
 		REEN
 	</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link href="css/main.css" rel="stylesheet">
+  	<link href="css/main.css" rel="stylesheet">
+  
 </head>
 <body>
 		<div class="navbar navbar-expand-lg top-navbar">
@@ -136,68 +138,72 @@
 
             <div class="container inner-bot">
                 <div class="col-md-12">
-                    <div class="carousel slide" id="myCarousel">
+                    <div class="carousel slide" id="myCarousel" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="img/img3.jpg"><img src="img/img3.jpg" class="img-responsive"></a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="img/img4.jpg"><img src="img/img4.jpg" class="img-responsive"></a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="img/img5.jpg"><img src="img/img5.jpg" class="img-responsive"></a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="img/img6.jpg"><img src="img/img6.jpg" class="img-responsive"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="img/img7.jpg"><img src="img/img7.jpg" class="img-responsive"></a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="img/img8.jpg"><img src="img/img8.jpg" class="img-responsive"></a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="img/img9.jpg"><img src="img/img9.jpg" class="img-responsive"></a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="img/img10.jpg"><img src="img/img10.jpg" class="img-responsive"></a>
-                                    </div>
-                                </div>
-                            </div>
 
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="img/img3.jpg"><img src="img/img3.jpg" class="d-block img-fluid" ></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="img/img4.jpg"><img src="img/img4.jpg" class="d-block img-fluid"></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="img/img5.jpg"><img src="img/img5.jpg" class="d-block img-fluid"></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="img/img6.jpg"><img src="img/img6.jpg" class="d-block img-fluid"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="img/img7.jpg"><img src="img/img7.jpg" class="d-block img-fluid"></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="img/img8.jpg"><img src="img/img8.jpg" class="d-block img-fluid"></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="img/img9.jpg"><img src="img/img9.jpg" class="d-block img-fluid"></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="img/img10.jpg"><img src="img/img10.jpg" class="d-block img-fluid"></a>
+                                    </div>
+                                </div>
+                            </div>
+								
+					
+                        </div>
+                    </div>
+                
+             
+                    <div class="carousel slide" id="myCarousel" data-ride="carousel">
+                        <div class="carousel-inner">
+							<!-- Botonesxd -->
+                        	<ol class="carousel-indicators">
+    							<li data-target="#myCarousel" data-slide-to="0" class="active btnstyle"></li>
+    							<li data-target="#myCarousel" data-slide-to="1" class="btnstyle"></li>
+  							</ol>			
+                    <!-- Flecha Izq-->
+                    <a href="#myCarousel" data-slide="prev" class="carousel-control-prev btnstyle" role="button" style="text-decoration: none;">
+                        
+                        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+    					<span class="sr-only">Previous</span>
+                    </a>
+                    <!-- Flecha Der-->
+                    <a href="#myCarousel" data-slide="next" class="carousel-control-next btnstyle" role="button" style="text-decoration: none;">
+                       <span class="carousel-control-next-icon" aria-hidden="false"></span>
+    					<span class="sr-only">Next</span>
+                    </a>	
                         </div>
                     </div>
                 </div>
-                <div class=" col-md-12 botones">
-                    <!-- Flecha Izq-->
-                    <a href="#myCarousel" data-slide="prev" class="left btnstyle" style="text-decoration: none;">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <!-- Botones-->
-                    <a href="#myCarousel" data-slide-to="0" class="btnstyle" style="text-decoration: none;">
-                        <span class="glyphicon glyphicon-certificate"></span>
-                    </a>
-                    <a href="#myCarousel" data-slide-to="1" class="btnstyle" style="text-decoration: none;">
-                        <span class="glyphicon glyphicon-certificate"></span>
-                    </a>
+</div>
 
-                    <!-- Flecha Der-->
-                    <a href="#myCarousel" data-slide="next" class="right btnstyle" style="text-decoration: none;">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-    </div>
+           </div>
+       
 
 </section>
 
