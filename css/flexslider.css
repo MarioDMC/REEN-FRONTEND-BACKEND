@@ -175,3 +175,24 @@
 .flexslider:hover .flex-direction-nav .flex-next:hover{
 	opacity: 1;
 }
+#boton{margin-top: -200px;
+text-align: center;
+
+}
+#boton2 {margin-top: -200px;
+text-align: right;
+
+}
+#boton3 {margin-top: -200px;
+text-align: left;
+
+}
+#boton4 {margin-top: -200px;
+text-align: right;
+height: 250px; 
+width: 350px;
+}
+#boton5 {margin-top: -250px;
+text-align: center;
+
+}
