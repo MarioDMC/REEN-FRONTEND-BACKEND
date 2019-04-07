@@ -66,14 +66,28 @@
 .text-center h3{font-size: 20px; color: #506a85; font-weight: 700;}
 .text-center p{font-size: 15px; color: #506a85; font-weight: 700;}
 .text-center h3:hover{color:#00bc9c;}
+
         /* CAROUSEL */
 .inner-bot{
     padding-top: 80px;
 }
-.btnstyle:hover{color: #00bc9c;}
-.btnstyle{color: #506a85; padding-right: 5px; padding-left: 5px;}
-.active{color: #00bc9c;}
 .botones{padding-top: 25px; text-align: center;}
+.carousel-indicators li {
+  width: 18px;
+  height: .25px;
+  border-radius: 100%;
+  background: #506a85;
+}
+
+.carousel-item {
+    height: 220px;
+}
+
+.carousel-indicators {
+    bottom: -10px;
+}
+
+
 
 /*<-------- TERMINA LATEST WORKS --------->*/
 
