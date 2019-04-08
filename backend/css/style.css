@@ -1129,12 +1129,9 @@ a.btn:focus {
 	bottom: 0;
 }	
 
-.avatar-circle {
-    border-radius: 50%;
-}
 
 .avatar-rounded {
-    border-radius: 50%;
+    border-radius: 100%;
 }
 
 .widget-messages .message-item {
