@@ -1,6 +1,6 @@
  <!-- Navbar -->
  <div class="headerbar-left">
-			<a href="index.php" class="logo"><img alt="Logo" src="img/white-logo.png" /></a>
+			<a href="index.php" class="logo"><img alt="Logo" src="img/white-logo.png" /><span>BACKEND</span></a>
         </div>
 
         <button class="button-menu-mobile open-left"><i class="fa fa-fw fa-bars"></i></button>
@@ -11,7 +11,7 @@
 						                    
                         <li class="list-inline-item dropdown notif">
                             <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/avatars/admin.png" alt="Profile image" class="avatar-rounded">
+                                <img src="../img/logo.png" alt="Profile image" class="avatar-rounded">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->

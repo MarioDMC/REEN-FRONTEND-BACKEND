@@ -288,15 +288,17 @@ a {
 
 .logo {
   color: #e3ebf3 !important;
-  font-size: 20px;
   font-weight: 200;
   text-transform: uppercase;
   letter-spacing: 1px; 
   line-height: 48px; 
-  margin: 5px;}
+  margin: 5px;
+ }
   
-.logo span span {
-    color: #fff; }
+.logo span {
+    color: #fff; 
+    vertical-align: middle;
+    padding-left: 5px;}
 
 .main-sidebar {
   top: 50px;
