@@ -1207,3 +1207,7 @@ a.btn:focus {
 .label-info {
     background-color: #5bc0de;
 }
+
+.padd{
+  padding-top: 50px;
+}
