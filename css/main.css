@@ -442,7 +442,8 @@ footer .footer-bottom{
 .inner-bot{
 	padding-top: 80px;
 }
-.botones{padding-top: 25px; text-align: center;}
+.botones{padding-bottom: 20px;
+}
 .carousel-indicators li {
 	width: 18px;
 	height: .25px;
@@ -458,6 +459,8 @@ footer .footer-bottom{
 	bottom: -10px;
 }
 
-
+.carousel-control-next, .carousel-control-prev {
+	opacity: 1;
+}
 
 /*<-------- TERMINA LATEST WORKS --------->*/
