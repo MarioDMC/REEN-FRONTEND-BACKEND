@@ -336,6 +336,8 @@ footer p{
 
 footer .row .footer-col{
 	padding: 25px;
+	font-size: 14px;
+	line-height: 22px;
 }
 
 p {
@@ -410,6 +412,15 @@ footer .container > .row{
 	margin-right: -25px;
 }
 
+.footer-bottom a p{
+	padding: 0:
+	margin: 0;
+	color: #707e8c;
+}
+
+.float-left {
+	float: left !important;
+}
 
 /*<-------- EMPIEZA LATEST WORKS --------->*/
 
