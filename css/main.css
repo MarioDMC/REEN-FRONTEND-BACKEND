@@ -372,78 +372,92 @@ footer .footer-bottom{
 /*<-------- EMPIEZA LATEST WORKS --------->*/
 
 .seccion-works{background: #f2f5f7; font-family: Lato;}
-              /* HEADER */
+/* HEADER */
 .head_works h3{font-weight: 700; text-align: center; color: #506a85; font-size: 44px;}
 .head_works p{font-weight: 400; text-align: center; color: #506a85; font-size: 22px;}
 .bajo{padding-top: 80px;}
 .inner {
-    padding-top: 120px;
-    padding-bottom: 120px;
+	padding-top: 120px;
+	padding-bottom: 120px;
 }
 
-          /* IMAGENES GRANDES*/
+/* IMAGENES GRANDES*/
 .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%; 
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: #00bc9c;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: #00bc9c;
 }
 
 .contain {
-  position: relative;
-  width: 100%;
-  height: 100%; 
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 .contain:hover .overlay {
-  opacity: .90;
+	opacity: .90;
 }
 .image {
-    display: block;
-    width: 100%;
-    height: 100%;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 .text {
-  color: white;
-  font-size: 50px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+	color: white;
+	font-size: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
 }
-              /*PIE DE IMAGEN*/
+/*PIE DE IMAGEN*/
 .bordered{
-    border-width: 1px 1px 2px;
-    border-style: solid;
-    border-color: rgb(230, 233, 237);
-    border-image: initial;
-    border-radius: 3px;
-    padding: 25px;
-    width: 100%;
-   vertical-align: middle;
+	border-width: 1px 1px 2px;
+	border-style: solid;
+	border-color: rgb(230, 233, 237);
+	border-image: initial;
+	border-radius: 3px;
+	padding: 25px;
+	width: 100%;
+	vertical-align: middle;
 
-    }
+}
 .text-center{text-align: center;}
 .text-center h3{font-size: 20px; color: #506a85; font-weight: 700;}
 .text-center p{font-size: 15px; color: #506a85; font-weight: 700;}
 .text-center h3:hover{color:#00bc9c;}
-        /* CAROUSEL */
+
+/* CAROUSEL */
 .inner-bot{
-    padding-top: 80px;
+	padding-top: 80px;
 }
-.btnstyle:hover{color: #00bc9c;}
-.btnstyle{color: #506a85; padding-right: 5px; padding-left: 5px;}
-.active{color: #00bc9c;}
-.botones{padding-top: 5px; text-align: center;}
+.botones{padding-top: 25px; text-align: center;}
+.carousel-indicators li {
+	width: 18px;
+	height: .25px;
+	border-radius: 100%;
+	background: #506a85;
+}
+
+.carousel-item {
+	height: 220px;
+}
+
+.carousel-indicators {
+	bottom: -10px;
+}
+
+
 
 /*<-------- TERMINA LATEST WORKS --------->*/
