@@ -8,7 +8,7 @@
 			<ul>
 
 					<li>
-						<a class="active" href="index.php"><i class="fa fa-fw fa-bars"></i><span> Dashboard </span> </a>
+						<a class="active" href="index.php"><i class="fas fa-users"></i><span> Users </span> </a>
                     </li>
 				
             </ul>
