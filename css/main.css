@@ -304,12 +304,7 @@ footer .container .footer-con{
 	margin-left: auto;
 }
 
-footer .container .row{
-	margin-left: -25px;
-	margin-right: -25px;
-	display: flex;
-	flex-wrap: wrap;
-}
+
 
 footer{
 	font-size: 14px;
@@ -341,11 +336,17 @@ footer p{
 
 footer .row .footer-col{
 	padding: 25px;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+p {
+	marrgin-botton
 }
 
 .footer-col{
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 45px;
+	padding-bottom: 35px;
 }
 
 
@@ -357,6 +358,11 @@ footer .row .footer-col{
 	margin: 0;
 }
 
+.footer-bottom .container.footer-col{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
 .float-right{
 	float: right;
 }
@@ -365,8 +371,55 @@ ul{
 	position: relative;
 }
 
-footer .footer-bottom{
+.thumbs.gap-xs .thumb{
+	padding: 0 0 5px 5px;
+}
 
+.thumbs.gap-xs{
+	margin-left: -5px;
+	margin-right: 0;
+}
+
+.col-6{
+	max-width: 50%;
+	flex: 0 0 50%;
+}
+
+figure{
+	margin: 0;
+	padding:  0;
+}
+
+figure img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	border-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+i.contact{
+	margin-right: 5px;
+	width: auto;
+	height: auto;
+	line-height: 18px;
+}
+
+footer .container > .row{
+	margin-left: -25px;
+	margin-right: -25px;
+}
+
+.footer-bottom a p{
+	padding: 0:
+	margin: 0;
+	color: #707e8c;
+}
+
+.float-left {
+	float: left !important;
 }
 
 /*<-------- EMPIEZA LATEST WORKS --------->*/

@@ -24,6 +24,7 @@ switch ($_POST["accion"]) {
 	case 'carga_foto':
 		carga_foto();
 		break;
+
 //WORKS
 	case 'consultar_works';
 		consultar_works();
@@ -224,6 +225,7 @@ switch ($_POST["accion"]) {
 
 
 	 //TERMINA WORKS
+
 
 
  ?>

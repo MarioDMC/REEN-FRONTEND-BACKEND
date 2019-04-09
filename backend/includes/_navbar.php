@@ -11,9 +11,11 @@
 						                    
                         <li class="list-inline-item dropdown notif">
                             <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="../img/logo.png" alt="Profile image" class="avatar-rounded">
+
+                                <i class="fas fa-user-circle avatar-rounded"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
                                     <h5 class="text-overflow"><small>Hello, admin</small> </h5>
