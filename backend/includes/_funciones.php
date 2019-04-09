@@ -3,9 +3,6 @@
 include_once("_db.php");
 
 switch ($_POST["accion"]) {
-	case 'login':
-		login();
-		break;
 	case 'consultar_usuarios':
 		consultar_usuarios();
 		break;
@@ -23,6 +20,9 @@ switch ($_POST["accion"]) {
 		break;
 
 //WORKS
+	case 'login':
+		login();
+		break;
 	case 'consultar_works';
 		consultar_works();
 		break;
@@ -47,48 +47,6 @@ switch ($_POST["accion"]) {
 		break;
 
 }
-
-	function login(){
-		global $db;
-		$mail= $_POST["mail"];
-		$pswd = $_POST["password"];
-
-		if (empty($mail) && empty($pswd)) {
-		//Ingresa Usuario y Contraseña	
-	       echo"4";
-	    }  
-	    	else if(empty($pswd)) {
-	    	//Ingresa un Usuario y contraseña
-	      		echo"3";
-	    	}
-	   			else {
-
-	    $stmt = $db->prepare("SELECT * FROM smoothop_REEN.users where pswd_users =? ");
-	    $stmt->execute(array($mail));
-		$row_count = $stmt->rowCount();
-
-	   	if ($row_count == 0) {
-	   	//Correo no existe
-	    	 echo "2";
-	    }
-		    else {
-		    	$stmt = $db->prepare("SELECT * FROM smoothop_REEN.users where pswd_users =? and email_users =? and status_users =?");
-		    	$stmt->execute(array($mail, $pswd, 1));
-				$row_count = $stmt->rowCount();
-					if ($row_count == 0) {
-					//Contraseña Incorrecta	
-						echo "1";
-					}
-					else{
-					//Acceso Correcto
-						echo "0";
-						session_start();
-	       				error_reporting(0);
-	        			$_SESSION['user'] = $mail;
-					}
-		    	}
-		    }
-		 }
 
 	function consultar_usuarios(){
 	 	global $db;
@@ -157,7 +115,42 @@ switch ($_POST["accion"]) {
     	echo json_encode($fila);
 	 }
 
-	 //EMPIEZA WORKS
+//EMPIEZA WORKS/////////////////////////////////////////////////////////////////
+	 function login(){
+		//Conectar a la BD
+		global $mysqli;
+		$email = $_POST["usuario"];
+		$pass = $_POST["password"];
+		//Si el usuario y pass están vacios imprimir 3
+		if (empty($email) && empty($pass)) {
+			echo "3";
+		//Si no están vacios consultar a la bd que el usuario exista.
+		}else {
+			$sql = "SELECT * FROM users WHERE email_users = '$email'";
+			$rsl = $mysqli->query($sql);
+			$row = $rsl->fetch_assoc();
+			//Si el usuario no existe, imprimir 2
+			if ($row == 0) {
+				echo "2";
+			//Si hay resultados verificar datos
+			}else{
+				$sql = "SELECT * FROM users WHERE email_users = '$email' AND pswd_users = '$pass'";
+				$rsl = $mysqli->query($sql);
+				$row = $rsl->fetch_assoc();
+				//Si el password no es correcto, imprimir 0
+				if ($row["pswd_users"] != $pass) {
+					echo "0";
+				//Si el usuario es correcto, imprimir 1
+				}elseif ($email == $row["email_users"] && $pass == $row["pswd_users"]) {
+					echo "1";
+					session_start();
+					error_reporting(0);
+					$_SESSION['usuario'] = $email;
+				}
+			}
+		} 	
+	}
+
 	 function consultar_works(){
 		global $mysqli;
 		$consulta = "SELECT * FROM works";
