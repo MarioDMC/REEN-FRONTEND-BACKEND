@@ -25,6 +25,23 @@ switch ($_POST["accion"]) {
 		carga_foto();
 		break;
 
+//WORKS
+	case 'consultar_works';
+		consultar_works();
+		break;
+	case 'insertar_works';
+		insertar_works();
+		break;
+	case 'editar_works';
+		editar_works($_POST['id']);
+		break;
+	case 'editar_registrow';
+		editar_registrow($_POST['id']);
+		break;
+	case 'eliminar_works';
+		eliminar_works($_POST['id']);
+		break;
+
 	default:
  
 		break;
@@ -139,6 +156,76 @@ switch ($_POST["accion"]) {
     	$fila = $stmt->fetch(PDO::FETCH_ASSOC);
     	echo json_encode($fila);
 	 }
+
+	 //EMPIEZA WORKS
+	 function consultar_works(){
+		global $mysqli;
+		$consulta = "SELECT * FROM works";
+		$resultado = mysqli_query($mysqli,$consulta);
+		$arreglo = [];
+		while($fila = mysqli_fetch_array($resultado)){
+			array_push($arreglo, $fila);
+		}
+		echo json_encode($arreglo); //Imprime el JSON ENCODEADO
+	}
+	function insertar_works(){
+		global $mysqli;
+		$pname_work = $_POST['pname_work'];
+		$description_work = $_POST['description_work'];
+		$img_work = $_POST['img_work'];
+		if ($pname_work == "") {
+			echo "Llena el campo Project Name";
+		}elseif ($description_work == "") {
+			echo "Llena el campo Description";
+		}else{
+		$consulta = "INSERT INTO works VALUES ('','$pname_work','$description_work','$img_work')";
+		$resultado = mysqli_query($mysqli,$consulta);
+		echo "Se inserto el work en la BD ";
+		}
+	}
+	
+	function eliminar_works($id){
+		global $mysqli;
+		$consulta = "DELETE FROM works WHERE id_work = $id";
+		$resultado = mysqli_query($mysqli,$consulta);
+		if ($resultado) {
+			echo "Se elimino correctamente";
+		}else{
+			echo "Se genero un error, intenta nuevamente";
+		}
+		
+	}
+	function editar_registrow($id){
+		global $mysqli;
+		$consulta = "SELECT * FROM works WHERE id_work = '$id'";
+		$resultado = mysqli_query($mysqli,$consulta);
+		
+		$fila = mysqli_fetch_array($resultado);
+		echo json_encode($fila);
+	}
+	
+	function editar_works($id){
+		global $mysqli;
+		$pname_work = $_POST['pname_work'];
+		$description_work = $_POST['description_work'];
+		$img_work = $_POST['img_work'];
+		if ($pname_work == "") {
+			echo "Llene el campo Project name";
+		}elseif ($description_work == "") {
+			echo "Llene el campo Description";
+		}elseif ($img_work == "") {
+			echo "Llene el campo Img";
+		}else{
+		echo "Se edito el work correctamente";
+		$consulta = "UPDATE works SET pname_work = '$pname_work', description_work = '$description_work', img_work = '$img_work' WHERE id_work = '$id'";
+		$resultado = mysqli_query($mysqli,$consulta);
+		
+			}
+	}
+
+
+	 //TERMINA WORKS
+
 
 
  ?>
