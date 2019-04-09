@@ -1,115 +1,135 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Works</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>REEN</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="css/style.css"/>
+        
 
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="img/unid-ico.ico">
 </head>
 
-<body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Works</a>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <a class="nav-link" href="includes/log_out.php">Sign out</a>
-            </li>
-        </ul>
-    </nav>
+<body class="adminbody">
 
-    <div class="container-fluid padd">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="usuarios.php">
-                                Usuarios
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link active" href="works.php">
-                                Works
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </nav>
+<div id="main">
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" id="main">
+    <!-- top bar navigation -->
+    <div class="headerbar">
+
+ <?php include "includes/_navbar.php" ?>
+
+ <?php include "includes/_sidebar.php" ?>
+    
+
+    <div class="content-page">
+    
+        <!-- Start content -->
+        <div class="content">
+            
+            <div class="container-fluid">
+
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Works</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-danger cancelar">Cancelar</button>
-                            <button type="button" class="btn btn-sm btn-outline-success" id="nuevo_registro">Nuevo</button>
-                        </div>
-                    </div>
-                </div>
-                <h2>Works</h2>
-                <div class="table-responsive view" id="show_data">
-                    <table class="table table-striped table-sm" id="list-works">
-                        <thead>
-                            <tr>
-                                <th>Project Name</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+        <h1 class="h2">Latest Works</h1>
 
+        <div  style="z-index: 2; position: absolute; display: none;" class="alert alert-danger" id="infoD"></div>
+        <div style="z-index: 2; position: absolute; display: none;" class="alert alert-success" id="infoS"></div>
 
-                <div id="insert_data" class="view">
-                    <form action="#" id="form_data">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="pname">Project Name</label>
-                                    <input type="text" id="pname_work" name="pname" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">Descripción</label>
-                                    <input type="text" id="description_work" name="description" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="img">Imagen</label>
-                                    <input type="file" name="foto" id="foto">
-                                    <input type="hidden" readonly="readonly" name="ruta" id="ruta">
-                                    <div id="preview"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <button type="button" class="btn btn-success" id="guardar_datos">Guardar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </main>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <article class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-danger cancelar" id="cancelar" >Cancelar</button>
+            <button type="button" class="btn btn-sm btn-outline-success" id="nuevo_registro" >Nuevo</button>
+          </article>
         </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      </div>
 
+      <div class="table-responsive view" id="show_data" >
+        <table class="table table-striped table-sm" id="list-works" class="display">
+          <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody>
+    
+          </tbody>
+        </table>
+      </div>
+       <div id="insert_data" class="view">
+       <form action="#" id="form_data" enctype="multipart/form-data">
+  <div class="row">
+  <div class="col">
+       <div class="form-group">
+            <label for="pname">Project Name</label>
+            <input type="text" id="pname_work" name="pname" class="form-control">
+        </div>
+       <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" id="description_work" name="description" class="form-control">
+        </div>
+       
+       <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" id="status" class="form-control">
+                <option value="nada">Seleccione Status</option>
+                <option value="top">top</option>
+                <option value="bot">bot</option>
+            </select>
+        </div>
+        </div>
+  <div class="col">
+        <div class="form-group">
+            <label for="img">Imagen</label>
+            <input type="file" name="foto" id="foto">
+            <input type="hidden" readonly="readonly" name="ruta" id="ruta">
+            <div id="preview"></div>
+        </div>
+     </div>
+     </div>
+     <div class="row">
+       <div class="col">
+         <button type="button" class="btn btn-success " id="guardar_datos">Guardar</button>
+       </div>
+     </div>
+     </div>
+       </form>
+                    
+            </div>
+            <!-- END container-fluid -->
+
+        </div>
+        <!-- END content -->
+
+    </div>
+<!-- END content-page -->
+  
+<footer class="footer">
+        <span class="text-right">
+        Copyright <a target="_blank" href="#">REEN</a>
+        </span>
+        <span class="float-right">
+        Powered by <a target="_blank" href="https://www.smoothoperators.com.mx/REEN"><b>SmoothOp</b></a>
+        </span>
+    </footer>
+
+</div>
+
+<!-- BEGIN Java Script for this page -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="js/admin.js"></script>
     <script>
-        function change_view(vista = 'show_data') {
+function change_view(vista = 'show_data') {
             $("#main").find(".view").each(function () {
                 // $(this).addClass("d-none");
                 $(this).slideUp('fast');
@@ -120,7 +140,7 @@
                 }
             });
         }
-        function consultar() {
+function consultar() {
             let obj = {
                 "accion": "consultar_works"
             };
@@ -133,9 +153,13 @@
           <td>${e.pname_work}</td>
           <td>${e.description_work}</td>
           <td><img src="${e.img_work}" class="img-thumbnail" width="100" height="100"/></td>
+          <td>${e.status}</td>
+
           <td>
-          <a href="#" data-id="${e.id_work}" class="editar_registro">Editar</a>
-          <a href="#" data-id="${e.id_work}" class="eliminar_registro">Eliminar</a>
+                <a href="#" data-id="${e.id_work}" class="editar_registro"><i class="fas fa-pen"></i> Editar</a>
+          </td>
+          <td>
+                <a href="#" data-id="${e.id_work}" class="eliminar_registro"><i class="fas fa-user-minus"></i> Eliminar</a>
           </td>
           </tr>
           `;
@@ -158,11 +182,13 @@
             let pname_work = $('#pname_work').val();
             let description_work = $('#description_work').val();
             let img_work = $('#ruta').val();
+            let status = $('#status').val();
             let obj = {
                 "accion": "insertar_works",
                 "pname_work": pname_work,
                 "description_work": description_work,
-                "img_work": img_work
+                "img_work": img_work,
+                "status" : status
             };
             $("#form_data").find("input").each(function () {
                 $(this).removeClass("has-error");
@@ -205,6 +231,7 @@
             $.post("includes/_funciones.php", obj, function (r) {
                 $("#pname_work").val(r.pname_work);
                 $("#description_work").val(r.description_work);
+                $("#status").val(r.status);
                 let template =
                     `
                     <img src="${r.img_work}" class="img-thumbnail" width="200" height="200"/>
@@ -216,7 +243,7 @@
         /* Eliminar */
         $("#main").on("click", ".eliminar_registro", function (e) {
             e.preventDefault();
-            let confirmacion = confirm('Desea eliminar este registro?');
+            let confirmacion = confirm('¿Desea eliminar este registro?');
             if (confirmacion) {
                 let id = $(this).data('id'),
                     obj = {
@@ -264,6 +291,10 @@
                 consultar();
             }
         });
-    </script>
+
+ 
+
+</script>
+
 </body>
 </html>

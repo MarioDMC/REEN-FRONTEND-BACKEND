@@ -21,9 +21,6 @@ switch ($_POST["accion"]) {
 	case 'consultar_registro':
 		consultar_registro($registro= $_POST["id"]);
 		break;
-	case 'carga_foto':
-		carga_foto();
-		break;
 
 //WORKS
 	case 'consultar_works';
@@ -40,6 +37,9 @@ switch ($_POST["accion"]) {
 		break;
 	case 'eliminar_works';
 		eliminar_works($_POST['id']);
+		break;
+	case 'carga_foto':
+		carga_foto();
 		break;
 
 	default:
@@ -173,12 +173,17 @@ switch ($_POST["accion"]) {
 		$pname_work = $_POST['pname_work'];
 		$description_work = $_POST['description_work'];
 		$img_work = $_POST['img_work'];
+		$status = $_POST['status'];
 		if ($pname_work == "") {
 			echo "Llena el campo Project Name";
 		}elseif ($description_work == "") {
 			echo "Llena el campo Description";
+		}elseif ($img_work == ""){
+			echo "Llena el campo Imagen";
+		}elseif ($status == "nada") {
+			echo "Seleccione el status";
 		}else{
-		$consulta = "INSERT INTO works VALUES ('','$pname_work','$description_work','$img_work')";
+		$consulta = "INSERT INTO works VALUES ('','$pname_work','$description_work','$img_work','$status')";
 		$resultado = mysqli_query($mysqli,$consulta);
 		echo "Se inserto el work en la BD ";
 		}
@@ -209,18 +214,42 @@ switch ($_POST["accion"]) {
 		$pname_work = $_POST['pname_work'];
 		$description_work = $_POST['description_work'];
 		$img_work = $_POST['img_work'];
+		$status = $_POST['status'];
+
 		if ($pname_work == "") {
 			echo "Llene el campo Project name";
 		}elseif ($description_work == "") {
 			echo "Llene el campo Description";
 		}elseif ($img_work == "") {
 			echo "Llene el campo Img";
+		}elseif ($status == "nada") {
+			echo "Seleccione el status";
 		}else{
 		echo "Se edito el work correctamente";
-		$consulta = "UPDATE works SET pname_work = '$pname_work', description_work = '$description_work', img_work = '$img_work' WHERE id_work = '$id'";
+		$consulta = "UPDATE works SET pname_work = '$pname_work', description_work = '$description_work', img_work = '$img_work', status = '$status' WHERE id_work = '$id'";
 		$resultado = mysqli_query($mysqli,$consulta);
 		
 			}
+	}
+
+	function carga_foto(){
+		if (isset($_FILES["foto"])) {
+			$file = $_FILES["foto"];
+			$nombre = $_FILES["foto"]["name"];
+			$temporal = $_FILES["foto"]["tmp_name"];
+			$tipo = $_FILES["foto"]["type"];
+			$tam = $_FILES["foto"]["size"];
+			$dir = "../img/";
+			$respuesta = [
+				"archivo" => "img/white-logo.png",
+				"status" => 0
+			];
+			if(move_uploaded_file($temporal, $dir.$nombre)){
+				$respuesta["archivo"] = "img/".$nombre;
+				$respuesta["status"] = 1;
+			}
+			echo json_encode($respuesta);
+		}
 	}
 
 
