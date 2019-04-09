@@ -3,9 +3,6 @@
 include_once("_db.php");
 
 switch ($_POST["accion"]) {
-	case 'login':
-		login();
-		break;
 	case 'consultar_usuarios':
 		consultar_usuarios();
 		break;
@@ -20,6 +17,26 @@ switch ($_POST["accion"]) {
 		break;	
 	case 'consultar_registro':
 		consultar_registro($registro= $_POST["id"]);
+		break;
+
+//WORKS
+	case 'login':
+		login();
+		break;
+	case 'consultar_works';
+		consultar_works();
+		break;
+	case 'insertar_works';
+		insertar_works();
+		break;
+	case 'editar_works';
+		editar_works($_POST['id']);
+		break;
+	case 'editar_registrow';
+		editar_registrow($_POST['id']);
+		break;
+	case 'eliminar_works';
+		eliminar_works($_POST['id']);
 		break;
 	case 'carga_foto':
 		carga_foto();
@@ -47,48 +64,6 @@ switch ($_POST["accion"]) {
 		break;
 
 }
-
-	function login(){
-		global $db;
-		$mail= $_POST["mail"];
-		$pswd = $_POST["password"];
-
-		if (empty($mail) && empty($pswd)) {
-		//Ingresa Usuario y Contraseña	
-	       echo"4";
-	    }  
-	    	else if(empty($pswd)) {
-	    	//Ingresa un Usuario y contraseña
-	      		echo"3";
-	    	}
-	   			else {
-
-	    $stmt = $db->prepare("SELECT * FROM smoothop_REEN.users where pswd_users =? ");
-	    $stmt->execute(array($mail));
-		$row_count = $stmt->rowCount();
-
-	   	if ($row_count == 0) {
-	   	//Correo no existe
-	    	 echo "2";
-	    }
-		    else {
-		    	$stmt = $db->prepare("SELECT * FROM smoothop_REEN.users where pswd_users =? and email_users =? and status_users =?");
-		    	$stmt->execute(array($mail, $pswd, 1));
-				$row_count = $stmt->rowCount();
-					if ($row_count == 0) {
-					//Contraseña Incorrecta	
-						echo "1";
-					}
-					else{
-					//Acceso Correcto
-						echo "0";
-						session_start();
-	       				error_reporting(0);
-	        			$_SESSION['user'] = $mail;
-					}
-		    	}
-		    }
-		 }
 
 	function consultar_usuarios(){
 	 	global $db;
@@ -157,7 +132,42 @@ switch ($_POST["accion"]) {
     	echo json_encode($fila);
 	 }
 
-	 //EMPIEZA WORKS
+//EMPIEZA WORKS/////////////////////////////////////////////////////////////////
+	 function login(){
+		//Conectar a la BD
+		global $mysqli;
+		$email = $_POST["usuario"];
+		$pass = $_POST["password"];
+		//Si el usuario y pass están vacios imprimir 3
+		if (empty($email) && empty($pass)) {
+			echo "3";
+		//Si no están vacios consultar a la bd que el usuario exista.
+		}else {
+			$sql = "SELECT * FROM users WHERE email_users = '$email'";
+			$rsl = $mysqli->query($sql);
+			$row = $rsl->fetch_assoc();
+			//Si el usuario no existe, imprimir 2
+			if ($row == 0) {
+				echo "2";
+			//Si hay resultados verificar datos
+			}else{
+				$sql = "SELECT * FROM users WHERE email_users = '$email' AND pswd_users = '$pass'";
+				$rsl = $mysqli->query($sql);
+				$row = $rsl->fetch_assoc();
+				//Si el password no es correcto, imprimir 0
+				if ($row["pswd_users"] != $pass) {
+					echo "0";
+				//Si el usuario es correcto, imprimir 1
+				}elseif ($email == $row["email_users"] && $pass == $row["pswd_users"]) {
+					echo "1";
+					session_start();
+					error_reporting(0);
+					$_SESSION['usuario'] = $email;
+				}
+			}
+		} 	
+	}
+
 	 function consultar_works(){
 		global $mysqli;
 		$consulta = "SELECT * FROM works";
@@ -173,12 +183,21 @@ switch ($_POST["accion"]) {
 		$pname_work = $_POST['pname_work'];
 		$description_work = $_POST['description_work'];
 		$img_work = $_POST['img_work'];
+
+		$status = $_POST['status'];
+
 		if ($pname_work == "") {
 			echo "Llena el campo Project Name";
 		}elseif ($description_work == "") {
 			echo "Llena el campo Description";
+
+		}elseif ($img_work == ""){
+			echo "Llena el campo Imagen";
+		}elseif ($status == "nada") {
+			echo "Seleccione el status";
 		}else{
-		$consulta = "INSERT INTO works VALUES ('','$pname_work','$description_work','$img_work')";
+		$consulta = "INSERT INTO works VALUES ('','$pname_work','$description_work','$img_work','$status')";
+
 		$resultado = mysqli_query($mysqli,$consulta);
 		echo "Se inserto el work en la BD ";
 		}
@@ -209,18 +228,47 @@ switch ($_POST["accion"]) {
 		$pname_work = $_POST['pname_work'];
 		$description_work = $_POST['description_work'];
 		$img_work = $_POST['img_work'];
+
+		$status = $_POST['status'];
+
+
 		if ($pname_work == "") {
 			echo "Llene el campo Project name";
 		}elseif ($description_work == "") {
 			echo "Llene el campo Description";
 		}elseif ($img_work == "") {
 			echo "Llene el campo Img";
+
+		}elseif ($status == "nada") {
+			echo "Seleccione el status";
 		}else{
 		echo "Se edito el work correctamente";
-		$consulta = "UPDATE works SET pname_work = '$pname_work', description_work = '$description_work', img_work = '$img_work' WHERE id_work = '$id'";
+		$consulta = "UPDATE works SET pname_work = '$pname_work', description_work = '$description_work', img_work = '$img_work', status = '$status' WHERE id_work = '$id'";
+
 		$resultado = mysqli_query($mysqli,$consulta);
 		
 			}
+	}
+
+
+	function carga_foto(){
+		if (isset($_FILES["foto"])) {
+			$file = $_FILES["foto"];
+			$nombre = $_FILES["foto"]["name"];
+			$temporal = $_FILES["foto"]["tmp_name"];
+			$tipo = $_FILES["foto"]["type"];
+			$tam = $_FILES["foto"]["size"];
+			$dir = "../img/";
+			$respuesta = [
+				"archivo" => "img/white-logo.png",
+				"status" => 0
+			];
+			if(move_uploaded_file($temporal, $dir.$nombre)){
+				$respuesta["archivo"] = "img/".$nombre;
+				$respuesta["status"] = 1;
+			}
+			echo json_encode($respuesta);
+		}
 	}
 
 

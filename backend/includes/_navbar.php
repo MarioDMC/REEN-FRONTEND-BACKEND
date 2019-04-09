@@ -22,12 +22,12 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
+                                <a href="includes/_logout.php" class="dropdown-item notify-item">
                                     <i class="fa fa-power-off"></i> <span>Logout</span>
                                 </a>
 								
 								<!-- item-->
-                                <a target="_blank" href="https://www.pikeadmin.com" class="dropdown-item notify-item">
+                                <a target="_blank" href="includes/_logout2.php" class="dropdown-item notify-item">
                                     <i class="fa fa-external-link"></i> <span>Frontend</span>
                                 </a>
                             </div>
