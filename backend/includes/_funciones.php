@@ -42,6 +42,23 @@ switch ($_POST["accion"]) {
 		carga_foto();
 		break;
 
+//WORKS
+	case 'consultar_works';
+		consultar_works();
+		break;
+	case 'insertar_works';
+		insertar_works();
+		break;
+	case 'editar_works';
+		editar_works($_POST['id']);
+		break;
+	case 'editar_registrow';
+		editar_registrow($_POST['id']);
+		break;
+	case 'eliminar_works';
+		eliminar_works($_POST['id']);
+		break;
+
 	default:
  
 		break;
@@ -166,17 +183,21 @@ switch ($_POST["accion"]) {
 		$pname_work = $_POST['pname_work'];
 		$description_work = $_POST['description_work'];
 		$img_work = $_POST['img_work'];
+
 		$status = $_POST['status'];
+
 		if ($pname_work == "") {
 			echo "Llena el campo Project Name";
 		}elseif ($description_work == "") {
 			echo "Llena el campo Description";
+
 		}elseif ($img_work == ""){
 			echo "Llena el campo Imagen";
 		}elseif ($status == "nada") {
 			echo "Seleccione el status";
 		}else{
 		$consulta = "INSERT INTO works VALUES ('','$pname_work','$description_work','$img_work','$status')";
+
 		$resultado = mysqli_query($mysqli,$consulta);
 		echo "Se inserto el work en la BD ";
 		}
@@ -207,7 +228,9 @@ switch ($_POST["accion"]) {
 		$pname_work = $_POST['pname_work'];
 		$description_work = $_POST['description_work'];
 		$img_work = $_POST['img_work'];
+
 		$status = $_POST['status'];
+
 
 		if ($pname_work == "") {
 			echo "Llene el campo Project name";
@@ -215,15 +238,18 @@ switch ($_POST["accion"]) {
 			echo "Llene el campo Description";
 		}elseif ($img_work == "") {
 			echo "Llene el campo Img";
+
 		}elseif ($status == "nada") {
 			echo "Seleccione el status";
 		}else{
 		echo "Se edito el work correctamente";
 		$consulta = "UPDATE works SET pname_work = '$pname_work', description_work = '$description_work', img_work = '$img_work', status = '$status' WHERE id_work = '$id'";
+
 		$resultado = mysqli_query($mysqli,$consulta);
 		
 			}
 	}
+
 
 	function carga_foto(){
 		if (isset($_FILES["foto"])) {

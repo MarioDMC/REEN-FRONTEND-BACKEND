@@ -135,6 +135,7 @@
     <script src="js/admin.js"></script>
     <script>
 function change_view(vista = 'show_data') {
+
             $("#main").find(".view").each(function () {
                 // $(this).addClass("d-none");
                 $(this).slideUp('fast');
@@ -145,7 +146,9 @@ function change_view(vista = 'show_data') {
                 }
             });
         }
+
 function consultar() {
+
             let obj = {
                 "accion": "consultar_works"
             };
@@ -158,6 +161,7 @@ function consultar() {
           <td>${e.pname_work}</td>
           <td>${e.description_work}</td>
           <td><img src="${e.img_work}" class="img-thumbnail" width="100" height="100"/></td>
+
           <td>${e.status}</td>
 
           <td>
@@ -165,6 +169,7 @@ function consultar() {
           </td>
           <td>
                 <a href="#" data-id="${e.id_work}" class="eliminar_registro"><i class="fas fa-user-minus"></i> Eliminar</a>
+
           </td>
           </tr>
           `;
@@ -187,13 +192,17 @@ function consultar() {
             let pname_work = $('#pname_work').val();
             let description_work = $('#description_work').val();
             let img_work = $('#ruta').val();
+
             let status = $('#status').val();
+
             let obj = {
                 "accion": "insertar_works",
                 "pname_work": pname_work,
                 "description_work": description_work,
+
                 "img_work": img_work,
                 "status" : status
+
             };
             $("#form_data").find("input").each(function () {
                 $(this).removeClass("has-error");
@@ -236,7 +245,9 @@ function consultar() {
             $.post("includes/_funciones.php", obj, function (r) {
                 $("#pname_work").val(r.pname_work);
                 $("#description_work").val(r.description_work);
+
                 $("#status").val(r.status);
+
                 let template =
                     `
                     <img src="${r.img_work}" class="img-thumbnail" width="200" height="200"/>
@@ -248,7 +259,9 @@ function consultar() {
         /* Eliminar */
         $("#main").on("click", ".eliminar_registro", function (e) {
             e.preventDefault();
+
             let confirmacion = confirm('¿Desea eliminar este registro?');
+
             if (confirmacion) {
                 let id = $(this).data('id'),
                     obj = {
@@ -308,3 +321,4 @@ function consultar() {
         header("Location:login.php");
     }
 ?>
+
