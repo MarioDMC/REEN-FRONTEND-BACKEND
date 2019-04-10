@@ -10,6 +10,9 @@
 					<li>
 						<a class="" href="index.php"><i class="fas fa-users"></i><span> Users </span> </a>
                     </li>
+                     <li>
+						<a class="" href="slider.php"><i class="fa fa-fw fa-star"></i><span> Slider </span> </a>
+                    </li>
                     <li>
 						<a class="" href="works.php"><i class="fa fa-fw fa-image"></i><span> Works </span> </a>
                     </li>

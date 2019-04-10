@@ -42,21 +42,38 @@ switch ($_POST["accion"]) {
 		carga_foto();
 		break;
 
-//WORKS
-	case 'consultar_works';
-		consultar_works();
+//RESPONSIVE
+	case 'consultar_responsive';
+		consultar_responsive();
 		break;
-	case 'insertar_works';
-		insertar_works();
+	case 'insertar_responsive';
+		insertar_responsive();
 		break;
-	case 'editar_works';
-		editar_works($_POST['id']);
+	case 'editar_responsive';
+		editar_responsive($_POST['id']);
 		break;
-	case 'editar_registrow';
-		editar_registrow($_POST['id']);
+	case 'editar_registroww';
+		editar_registroww($_POST['id']);
 		break;
-	case 'eliminar_works';
-		eliminar_works($_POST['id']);
+	case 'eliminar_responsive';
+		eliminar_responsive($_POST['id']);
+
+//SLIDER
+	case 'consultar_slider';
+		consultar_slider();
+		break;
+	case 'insertar_slider';
+		insertar_slider();
+		break;
+	case 'editar_slider';
+		editar_slider($_POST['id']);
+		break;
+	case 'editar_registrowww';
+		editar_registrowww($_POST['id']);
+		break;
+	case 'eliminar_slider';
+		eliminar_slider($_POST['id']);
+
 		break;
 
 	default:
@@ -275,5 +292,162 @@ switch ($_POST["accion"]) {
 	 //TERMINA WORKS
 
 
+	//EMPIEZA RESPONSIVE////////////////
+	 function consultar_responsive(){
+		global $mysqli;
+		$consulta = "SELECT * FROM responsive";
+		$resultado = mysqli_query($mysqli,$consulta);
+		$arreglo = [];
+		while($fila = mysqli_fetch_array($resultado)){
+			array_push($arreglo, $fila);
+		}
+		echo json_encode($arreglo); //Imprime el JSON ENCODEADO
+	}
+	function insertar_responsive(){
+		global $mysqli;
+		$titulo_responsive = $_POST['titulo_responsive'];
+		$texto_responsive = $_POST['texto_responsive'];
+		$img_responsive = $_POST['img_responsive'];
+
+		if ($titulo_responsive == "") {
+			echo "Llena el campo titulo";
+		}elseif ($texto_responsive == "") {
+			echo "Llena el campo texto";
+
+		}elseif ($img_responsive == ""){
+			echo "Llena el campo Imagen";
+		}else{
+		$consulta = "INSERT INTO responsive VALUES ('','$titulo_responsive','$texto_responsive','$img_responsive')";
+
+		$resultado = mysqli_query($mysqli,$consulta);
+		echo "Se inserto el responsive en la BD ";
+		}
+	}
+	
+	function eliminar_responsive($id){
+		global $mysqli;
+		$consulta = "DELETE FROM responsive WHERE id_responsive = $id";
+		$resultado = mysqli_query($mysqli,$consulta);
+		if ($resultado) {
+			echo "Se elimino correctamente";
+		}else{
+			echo "Se genero un error, intenta nuevamente";
+		}
+		
+	}
+	function editar_registroww($id){
+		global $mysqli;
+		$consulta = "SELECT * FROM responsive WHERE id_responsive = '$id'";
+		$resultado = mysqli_query($mysqli,$consulta);
+		
+		$fila = mysqli_fetch_array($resultado);
+		echo json_encode($fila);
+	}
+	
+	function editar_responsive($id){
+		global $mysqli;
+		$titulo_responsive = $_POST['titulo_responsive'];
+		$texto_responsive = $_POST['texto_responsive'];
+		$img_responsive = $_POST['img_responsive'];
+
+
+		if ($titulo_responsive == "") {
+			echo "Llene el campo titulo";
+		}elseif ($texto_responsive == "") {
+			echo "Llene el campo texto";
+		}elseif ($img_responsive == "") {
+			echo "Llene el campo Img";
+
+		}else{
+		echo "Se edito el responsive correctamente";
+		$consulta = "UPDATE responsive SET titulo_responsive = '$titulo_responsive', texto_responsive = '$texto_responsive', img_responsive = '$img_responsive' WHERE id_responsive = '$id'";
+
+		$resultado = mysqli_query($mysqli,$consulta);
+		
+			}
+	}
+
+
+
+
+	//TERMINA RESPONSIVE////////////////
+
+	//EMPIEZA SLIDER///////////////////
+	 function consultar_slider(){
+		global $mysqli;
+		$consulta = "SELECT * FROM slider";
+		$resultado = mysqli_query($mysqli,$consulta);
+		$arreglo = [];
+		while($fila = mysqli_fetch_array($resultado)){
+			array_push($arreglo, $fila);
+		}
+		echo json_encode($arreglo); //Imprime el JSON ENCODEADO
+	}
+	function insertar_slider(){
+		global $mysqli;
+		$titulo_slider = $_POST['titulo_slider'];
+		$texto_slider = $_POST['texto_slider'];
+		$img_slider = $_POST['img_slider'];
+
+		if ($titulo_slider == "") {
+			echo "Llena el campo titulo";
+		}elseif ($texto_slider == "") {
+			echo "Llena el campo texto";
+
+		}elseif ($img_slider == ""){
+			echo "Llena el campo Imagen";
+		}else{
+		$consulta = "INSERT INTO slider VALUES ('','$titulo_slider','$texto_slider','$img_slider')";
+
+		$resultado = mysqli_query($mysqli,$consulta);
+		echo "Se inserto el slider en la BD ";
+		}
+	}
+	
+	function eliminar_slider($id){
+		global $mysqli;
+		$consulta = "DELETE FROM slider WHERE id_slider = $id";
+		$resultado = mysqli_query($mysqli,$consulta);
+		if ($resultado) {
+			echo "Se elimino correctamente";
+		}else{
+			echo "Se genero un error, intenta nuevamente";
+		}
+		
+	}
+	function editar_registrowww($id){
+		global $mysqli;
+		$consulta = "SELECT * FROM slider WHERE id_slider = '$id'";
+		$resultado = mysqli_query($mysqli,$consulta);
+		
+		$fila = mysqli_fetch_array($resultado);
+		echo json_encode($fila);
+	}
+	
+	function editar_slider($id){
+		global $mysqli;
+		$titulo_slider = $_POST['titulo_slider'];
+		$texto_slider = $_POST['texto_slider'];
+		$img_slider = $_POST['img_slider'];
+
+
+		if ($titulo_slider == "") {
+			echo "Llene el campo titulo";
+		}elseif ($texto_slider == "") {
+			echo "Llene el campo texto";
+		}elseif ($img_slider == "") {
+			echo "Llene el campo Img";
+
+		}else{
+		echo "Se edito el slider correctamente";
+		$consulta = "UPDATE slider SET titulo_slider = '$titulo_slider', texto_slider = '$texto_slider', img_slider = '$img_slider' WHERE id_slider = '$id'";
+
+		$resultado = mysqli_query($mysqli,$consulta);
+		
+			}
+	}
+
+
+	//TERMINA SLIDER////////////////
 
  ?>
