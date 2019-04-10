@@ -194,19 +194,21 @@ p {
 	padding: 56px 0 24px;
 }
 
-.banner h3,
+
 .banner h2,
-.banner p,
 .banner .icon {
 	text-align: center;
 }
-
-.banner h3,
+.banner p,
+.banner h3,{
+	  text-align: left;
+}
 .banner h2 {
 	font-family: "Lato", Arial, sans-serif;
 	font-weight: 700;
 	margin: 0 0 16px 0;
 }
+
 
 .banner h2 {
 	font-size: 22px;
@@ -232,6 +234,46 @@ p {
 	color: #00bc9c;
 	font-size: 24px;
 }
+.banner {
+		padding: 128px 0 96px;
+	}
+
+	.banner h2 {
+		font-size: 44px;
+		margin-bottom: 32px;
+	}
+
+	.banner h3 {
+		font-size: 26px;
+	}
+
+	.banner p {
+		font-size: 16px;
+	}
+
+	.banner h3,
+	.banner p,
+	.banner .icon {
+		text-align: left;
+	}
+
+	.banner .intro {
+		margin-bottom: 64px;
+	}
+
+	.banner .intro p {
+		font-size: 22px;
+		text-align: center;
+		width: 758px;
+		margin: 0 auto;
+	}
+
+	.banner .fa {
+		font-size: 32px;
+	}
+.banner .fa {
+		font-size: 42px;
+	}
 
 /*<-------- EMPIEZA GET IN TOUCH--------->*/
 .get-in-touch {
@@ -270,7 +312,34 @@ p {
 	border-bottom: 2px solid #148e76;
 	text-decoration: none;
 }
+.get-in-touch {
+		padding: 128px 0;
+	}
 
+	.get-in-touch-wrap h2 {
+		font-size: 44px;
+		margin-bottom: 32px;
+	}
+
+	.get-in-touch-wrap p {
+		font-size: 22px;
+		width: 770px;
+		margin: 0 auto;
+	}
+
+	.btn-getintouch {
+		font: 700 18px/64px "Source Sans Pro", Arial, sans-serif;
+		letter-spacing: 1px;
+		padding: 0 64px;
+		margin-top: 48px;
+	}
+.btn-back-to-top {
+		left: auto;
+		top: 50%;
+		right: 15px;
+		-webkit-transform: translateY(-50%);
+				transform: translateY(-50%);
+	}
 /*<-------- EMPIEZA FOOTER --------->*/
 
 .footer-top{
@@ -307,8 +376,6 @@ footer .container .footer-con{
 	margin-right: auto;
 	margin-left: auto;
 }
-
-
 
 footer{
 	font-size: 14px;
@@ -352,7 +419,6 @@ p {
 	padding-top: 45px;
 	padding-bottom: 35px;
 }
-
 
 .footer-menu li{
 	display: inline;
@@ -578,6 +644,7 @@ a:hover {
 	vertical-align: middle;
 
 }
+
 .text-center{text-align: center;}
 .text-center h3{font-size: 20px; color: #506a85; font-weight: 700;}
 .text-center p{font-size: 15px; color: #506a85; font-weight: 700;}
