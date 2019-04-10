@@ -16,7 +16,6 @@
                      <li>
 						<a class="" href="responsive.php"><i class="fa fa-fw fa-indent"></i><span> Responsive </span> </a>
                     </li>
-				
             </ul>
 
             <div class="clearfix"></div>
