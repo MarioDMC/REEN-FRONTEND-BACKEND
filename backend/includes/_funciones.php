@@ -58,6 +58,22 @@ switch ($_POST["accion"]) {
 	case 'eliminar_responsive';
 		eliminar_responsive($_POST['id']);
 
+//WORKS
+	case 'consultar_works';
+		consultar_works();
+		break;
+	case 'insertar_responsive';
+		insertar_responsive();
+		break;
+	case 'editar_responsive';
+		editar_responsive($_POST['id']);
+		break;
+	case 'editar_registroww';
+		editar_registroww($_POST['id']);
+		break;
+	case 'eliminar_works';
+		eliminar_works($_POST['id']);
+    
 //SLIDER
 	case 'consultar_slider';
 		consultar_slider();
@@ -73,6 +89,7 @@ switch ($_POST["accion"]) {
 		break;
 	case 'eliminar_slider';
 		eliminar_slider($_POST['id']);
+
 
 		break;
 
@@ -449,5 +466,6 @@ switch ($_POST["accion"]) {
 
 
 	//TERMINA SLIDER////////////////
+
 
  ?>

@@ -16,7 +16,9 @@
                     <li>
 						<a class="" href="works.php"><i class="fa fa-fw fa-image"></i><span> Works </span> </a>
                     </li>
-				
+                     <li>
+						<a class="" href="responsive.php"><i class="fa fa-fw fa-indent"></i><span> Responsive </span> </a>
+                    </li>
             </ul>
 
             <div class="clearfix"></div>
