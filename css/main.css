@@ -10,6 +10,10 @@ a:hover, a:focus, .info h3 a:hover, .bordered .info h4 a:hover, .icon i.icn, .me
     color: #1abb9c;
 }
 
+.btn:hover, .btn:focus, .btn:active, .btn.active, .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>li>a:hover, .pagination>li>a:focus {
+    background-color: #17a78b;
+}
+
 
 .megamenu-li{
 	position: static;
@@ -578,6 +582,53 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+.footer-bottom p.float-left, .footer-bottom ul.float-right {
+    float: none!important;
+    text-align: center;
+}
+}
+
+@media (max-width: 767px) {
+.footer-bottom p {
+    margin-bottom: 20px;
+}
+}
+
+@media (max-width: 767px) {
+footer .row .footer-col {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+}
+
+@media (max-width: 767px) {
+footer .footer-col {
+    padding-top: 35px;
+    padding-bottom: 25px;
+}
+}
+
+@media (max-width: 767px) {
+.navbar .container, .container {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+}
+
+@media (max-width: 767px) {
+footer .container>.row {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+}
+
+@media (max-width: 767px) {
+.row {
+    overflow: hidden;
+}
 }
 
 /*<-------- EMPIEZA LATEST WORKS --------->*/
