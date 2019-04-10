@@ -304,8 +304,6 @@ footer .container .footer-con{
 	margin-left: auto;
 }
 
-
-
 footer{
 	font-size: 14px;
 	line-height: 22px;
@@ -348,7 +346,6 @@ p {
 	padding-top: 45px;
 	padding-bottom: 35px;
 }
-
 
 .footer-menu li{
 	display: inline;
@@ -486,6 +483,7 @@ footer .container > .row{
 	vertical-align: middle;
 
 }
+
 .text-center{text-align: center;}
 .text-center h3{font-size: 20px; color: #506a85; font-weight: 700;}
 .text-center p{font-size: 15px; color: #506a85; font-weight: 700;}

@@ -2,6 +2,7 @@
 
 include_once("_db.php");
 
+//USERS
 switch ($_POST["accion"]) {
 	case 'consultar_usuarios':
 		consultar_usuarios();
@@ -88,7 +89,6 @@ switch ($_POST["accion"]) {
 					echo "0";
 				}
 	 }
-
 
 	function insertar_usuarios(){
 		$nombre= $_POST["nombre"];
@@ -250,7 +250,6 @@ switch ($_POST["accion"]) {
 			}
 	}
 
-
 	function carga_foto(){
 		if (isset($_FILES["foto"])) {
 			$file = $_FILES["foto"];
@@ -270,7 +269,6 @@ switch ($_POST["accion"]) {
 			echo json_encode($respuesta);
 		}
 	}
-
 
 	 //TERMINA WORKS
 
