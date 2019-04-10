@@ -1,4 +1,9 @@
-
+<?php
+  session_start();
+  error_reporting(0);
+  $varsesion = $_SESSION['usuario'];
+  if (isset($varsesion)){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -310,3 +315,8 @@ $("#foto").on("change", function (e){
 
 </body>
 </html>
+<?php
+  }else{
+    header("Location:login.php");
+  }
+?>

@@ -38,7 +38,7 @@
             <div class="container-fluid">
 
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Latest Works</h1>
+        <h1 class="h2">Responsive</h1>
 
         <div  style="z-index: 2; position: absolute; display: none;" class="alert alert-danger" id="infoD"></div>
         <div style="z-index: 2; position: absolute; display: none;" class="alert alert-success" id="infoS"></div>
@@ -52,13 +52,13 @@
       </div>
 
       <div class="table-responsive view" id="show_data" >
-        <table class="table table-striped table-sm" id="list-works" class="display">
+        <table class="table table-striped table-sm" id="list-responsive" class="display">
           <thead>
             <tr>
-                <th>Project Name</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>Status</th>
+                <th>Id</th>
+                <th>Imagen</th>
+                <th>Titulo</th>
+                <th>Texto</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -73,22 +73,14 @@
   <div class="row">
   <div class="col">
        <div class="form-group">
-            <label for="pname">Project Name</label>
-            <input type="text" id="pname_work" name="pname" class="form-control">
+            <label for="titulo_resposive">Titulo</label>
+            <input type="text" id="titulo_responsive" name="titulo_responsive" class="form-control">
         </div>
        <div class="form-group">
-            <label for="description">Descripción</label>
-            <input type="text" id="description_work" name="description" class="form-control">
+            <label for="texto_responsive">Texto</label>
+            <input type="text" id="texto_responsive" name="texto_responsive" class="form-control">
         </div>
        
-       <div class="form-group">
-            <label for="status">Status</label>
-            <select name="status" id="status" class="form-control">
-                <option value="nada">Seleccione Status</option>
-                <option value="top">top</option>
-                <option value="bot">bot</option>
-            </select>
-        </div>
         </div>
   <div class="col">
         <div class="form-group">
@@ -150,7 +142,7 @@ function change_view(vista = 'show_data') {
 function consultar() {
 
             let obj = {
-                "accion": "consultar_works"
+                "accion": "consultar_responsive"
             };
             $.post("includes/_funciones.php", obj, function (respuesta) {
                 let template = ``;
@@ -158,23 +150,23 @@ function consultar() {
                     template +=
                         `
           <tr>
-          <td>${e.pname_work}</td>
-          <td>${e.description_work}</td>
-          <td><img src="${e.img_work}" class="img-thumbnail" width="100" height="100"/></td>
 
-          <td>${e.status}</td>
+          <td>${e.id_responsive}</td>
+          <td>${e.titulo_responsive}</td>
+          <td>${e.texto_responsive}</td>
+          <td><img src="${e.img_responsive}" class="img-thumbnail" width="100" height="100"/></td>
 
           <td>
-                <a href="#" data-id="${e.id_work}" class="editar_registro"><i class="fas fa-pen"></i> Editar</a>
+                <a href="#" data-id="${e.id_responsive}" class="editar_registro"><i class="fas fa-pen"></i> Editar</a>
           </td>
           <td>
-                <a href="#" data-id="${e.id_work}" class="eliminar_registro"><i class="fas fa-user-minus"></i> Eliminar</a>
+                <a href="#" data-id="${e.id_responsive}" class="eliminar_registro"><i class="fas fa-user-minus"></i> Eliminar</a>
 
           </td>
           </tr>
           `;
                 });
-                $("#list-works tbody").html(template);
+                $("#list-responsive tbody").html(template);
             }, "JSON");
         }
         $(document).ready(function () {
@@ -189,19 +181,16 @@ function consultar() {
             $("#form_data")[0].reset();
         });
         $("#guardar_datos").click(function () {
-            let pname_work = $('#pname_work').val();
-            let description_work = $('#description_work').val();
-            let img_work = $('#ruta').val();
-
-            let status = $('#status').val();
+            let titulo_responsive = $('#titulo_responsive').val();
+            let texto_responsive = $('#texto_responsive').val();
+            let img_responsive = $('#ruta').val();
 
             let obj = {
-                "accion": "insertar_works",
-                "pname_work": pname_work,
-                "description_work": description_work,
+                "accion": "insertar_responsive",
+                "titulo_responsive": titulo_responsive,
+                "texto_responsive": texto_responsive,
 
-                "img_work": img_work,
-                "status" : status
+                "img_responsive": img_responsive,
 
             };
             $("#form_data").find("input").each(function () {
@@ -214,45 +203,43 @@ function consultar() {
                 }
             });
             if ($(this).data("editar") == 1) {
-                obj["accion"] = "editar_works";
+                obj["accion"] = "editar_responsive";
                 obj["id"] = $(this).data("id");
                 $(this).text("Guardar").data("editar", 0);
                 $("#form_data")[0].reset();
             }
             $.post("includes/_funciones.php", obj, function (respuesta) {
                 alert(respuesta);
-                if (respuesta == "Se inserto el work en la BD ") {
+                if (respuesta == "Se inserto el responsive en la BD ") {
                     change_view();
                     consultar();
                 }
-                if (respuesta == "Se edito el work correctamente") {
+                if (respuesta == "Se edito el responsive correctamente") {
                     change_view();
                     consultar();
                 }
             });
         });
         //EDITAR
-        $('#list-works').on("click", ".editar_registro", function (e) {
+        $('#list-responsive').on("click", ".editar_registro", function (e) {
             e.preventDefault();
             let id = $(this).data('id'),
                 obj = {
-                    "accion": "editar_registrow",
+                    "accion": "editar_registroww",
                     "id": id
                 };
             $("#form_data")[0].reset();
             change_view('insert_data');
             $("#guardar_datos").text("Editar").data("editar", 1).data("id", id);
             $.post("includes/_funciones.php", obj, function (r) {
-                $("#pname_work").val(r.pname_work);
-                $("#description_work").val(r.description_work);
-
-                $("#status").val(r.status);
+                $("#titulo_responsive").val(r.titulo_responsive);
+                $("#texto_responsive").val(r.texto_responsive);
 
                 let template =
                     `
-                    <img src="${r.img_work}" class="img-thumbnail" width="200" height="200"/>
+                    <img src="${r.img_responsive}" class="img-thumbnail" width="200" height="200"/>
                     `;
-                $("#ruta").val(r.img_work);
+                $("#ruta").val(r.img_responsive);
                 $("#preview").html(template);
             }, "JSON");
         });
@@ -265,7 +252,7 @@ function consultar() {
             if (confirmacion) {
                 let id = $(this).data('id'),
                     obj = {
-                        "accion": "eliminar_works",
+                        "accion": "eliminar_responsive",
                         "id": id
                     };
                 $.post("includes/_funciones.php", obj, function (respuesta) {
