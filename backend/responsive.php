@@ -56,9 +56,9 @@
           <thead>
             <tr>
                 <th>Id</th>
-                <th>Imagen</th>
                 <th>Titulo</th>
                 <th>Texto</th>
+                <th>Imagen</th>
                 <th></th>
                 <th></th>
             </tr>
