@@ -19,10 +19,6 @@ body{
 	position: relative;
 }
 
-.slider li, ul{
-	width: 100%;
-}
-
 .slider li{
 	overflow: hidden;
 }
