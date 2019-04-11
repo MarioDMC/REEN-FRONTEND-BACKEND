@@ -19,9 +19,6 @@ body{
 	position: relative;
 }
 
-.slider li, ul{
-	width: 100%;
-}
 
 .slider li{
 	overflow: hidden;
@@ -149,8 +146,6 @@ text-align: center;
     bottom: 200px;
 }
 #boton2 {	
-	 display: block;
-
 color: #FFF !important;
 	background: #1abb9c;
 	background-color: rgb(26, 187, 156);
