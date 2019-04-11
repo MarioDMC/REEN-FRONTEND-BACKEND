@@ -356,6 +356,7 @@ p {
 
 .footer-top p, a, li{
 	color: #a3b1bf;
+	list-style: none;
 }
 
 .footer-top ul{
@@ -395,6 +396,7 @@ footer h4{
 	font-weight: 700;
 	margin-top: 0;
 	letter-spacing: 0.4px;
+	color: #fff;
 }
 
 footer img{
@@ -576,12 +578,23 @@ select, textarea, textarea.form-control, input[type="text"], input[type="email"]
     font-weight: 700;
 }
 
+footer {
+	background: #2f4052;
+}
+
 a {
     transition: all .2s ease-out;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+.navbar-nav > .dropdown-menu, .navbar-nav .dropdown.open .dropdown-submenu:hover > .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 0;
+    margin-left: 0;
 }
 
 @media (max-width: 767px) {
@@ -629,6 +642,12 @@ footer .container>.row {
 .row {
     overflow: hidden;
 }
+}
+
+a.mas{
+	font-size: 105%;
+	font-weight: 700;
+
 }
 
 /*<-------- EMPIEZA LATEST WORKS --------->*/
